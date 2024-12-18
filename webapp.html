@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizenship Test Question Generator</title>
+    <style>
+        body {
+            background-image: url('https://cdn.britannica.com/33/4833-050-F6E415FE/Flag-United-States-of-America.jpg'); /* Replace with your image file */
+            background-size: cover; /* Makes the image cover the entire page */
+            background-repeat: no-repeat; 
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #cf0000;
+            text-align: center;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            color: #0e2383;
+        }
+        button {
+            background-color: #0e2383;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: rgb(5, 29, 57);
+        }
+        .question {
+            margin: 15px 0;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .answer {
+            margin: 15px 0;
+            font-size: 18px;
+            display: none;
+            color: #cf0000;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Citizenship Test Question Generator</h1>
+        <div class="question" id="question">Click below to get a question!</div>
+        <div class="answer" id="answer"></div>
+        <button id="generateQuestion">Get a Question</button>
+        <button id="showAnswer">Show Answer</button>
+    </div>
+
+    <script>
+        const questions = [
+            { question: "What is the supreme law of the land?", answer: "The Constitution." },
+            { question: "What does the Constitution do?", answer: "Sets up the government, defines the government, protects basic rights of Americans." },
+            { question: "The idea of self-government is in the first three words of the Constitution. What are these words?", answer: "'We the People.'" },
+            { question: "What is an amendment?", answer: "A change (to the Constitution) or an addition (to the Constitution)." },
+            { question: "What do we call the first ten amendments to the Constitution?", answer: "The Bill of Rights." },
+            { question: "What is one right or freedom from the First Amendment?", answer: "Speech, religion, assembly, press, petition the government." },
+            { question: "How many amendments does the Constitution have?", answer: "Twenty-seven (27)." },
+            { question: "What did the Declaration of Independence do?", answer: "Announced our independence (from Great Britain), declared our independence, said that the United States is free." },
+            { question: "What are two rights in the Declaration of Independence?", answer: "Life, liberty, and the pursuit of happiness." },
+            { question: "What is the economic system in the United States?", answer: "Capitalist economy and market economy." },
+            { question: "What is the 'rule of law'?", answer: "Everyone must follow the law, leaders must obey the law, government must obey the law, no one is above the law." },
+            { question: "Name one branch or part of the government.", answer: "Congress, legislative, President, executive, the courts, judicial." },
+            { question: "What stops one branch of government from becoming too powerful?", answer: "Checks and balances, separation of powers." },
+            { question: "Who is in charge of the executive branch?", answer: "The President." },
+            { question: "Who makes federal laws?", answer: "Congress, Senate and House of Representatives, U.S. or national legislature." },
+            { question: "What are the two parts of the U.S. Congress?", answer: "The Senate and House of Representatives." },
+            { question: "How many U.S. Senators are there?", answer: "One hundred (100)." },
+            { question: "We elect a U.S. Senator for how many years?", answer: "Six (6)." },
+            { question: "Who does a U.S. Senator represent?", answer: "All people of the state." },
+            { question: "Why do some states have more Representatives than other states?", answer: "Because of the state’s population, because they have more people, because some states have more people." },
+            { question: "If both the President and the Vice President can no longer serve, who becomes President?", answer: "The Speaker of the House." },
+            { question: "What is the highest court in the United States?", answer: "The Supreme Court." },
+            { question: "What is one responsibility that is only for United States citizens?", answer: "Serve on a jury, vote in a federal election." },
+            { question: "What are two rights only for United States citizens?", answer: "Apply for a federal job, vote in a federal election, run for office." },
+            { question: "When was the Declaration of Independence adopted?", answer: "July 4, 1776." },
+            { question: "What territory did the United States buy from France in 1803?", answer: "The Louisiana Territory, Louisiana." },
+            { question: "Name one war fought by the United States in the 1900s.", answer: "World War I, World War II, Korean War, Vietnam War, Gulf War." },
+        ];
+
+        const questionElement = document.getElementById('question');
+        const answerElement = document.getElementById('answer');
+        const generateButton = document.getElementById('generateQuestion');
+        const showAnswerButton = document.getElementById('showAnswer');
+
+        generateButton.addEventListener('click', () => {
+            const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+            questionElement.textContent = randomQuestion.question;
+            answerElement.textContent = randomQuestion.answer;
+            answerElement.style.display = 'none'; // Hide answer when a new question is generated
+        });
+
+        showAnswerButton.addEventListener('click', () => {
+            answerElement.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
